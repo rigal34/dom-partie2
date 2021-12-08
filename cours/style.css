@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+}
+ /*penser à mettre la font familly dans * pour quelle soit prise partout*/
+
+
+ body{
+     text-align: center;
+     margin: 0;
+     color: white;
+     max-width: 200vh;/*fait deux la taille de l'écran utlisateur*/
+ }
+
+
+ .box {
+border: 6px solid white;
+transition: 0.25s ease;
+background: black;
+padding: 10px;
+
+ }
+
+ p {
+
+ visibility:hidden;
+ width: 240px;
+ margin: 10px auto 0;
+ opacity: 0;
+ transition: 0.6s;
+ transform: translateX(-200px);
+
+
+ }
+
+ /*je créer une class pour éviter les répétitions de mon action dans le JS*/
+ .question-clicked {
+background: rgb(47, 47, 47);
+border-radius: 30px;
+border: 6px dashed pink;
+ }
+
+ .show-response {
+     visibility: visible;
+     opacity: 1;
+     transform: translateX(0);
+ }
