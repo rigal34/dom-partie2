@@ -73,3 +73,50 @@ response.style.background = "red";
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------         
 
 
+//tout les événement de la souris
+//Mouse Events
+
+const mousemove = document.querySelector(".mousemove");
+window.addEventListener("mousemove",(e) => {
+mousemove.style.left = e.pageX + "px"; //cette valeur est tiré du dome de ma console pageX je concaténe une unité en px pour que celle-ci fonxtionne sur mes axe horizontaux
+mousemove.style.top = e.pageY + "px"; //cette valeur est tiré du dome de ma console pageY je concaténe une unité en px pour que celle-ci fonxtionne sur mes axe verticaux     
+
+});
+
+window.addEventListener("mousedown", () => { // j'ajoute un évènement à ma fenètre qui quand la souris est appuyée je fais une fonction
+mousemove.style.transform = "scale(2) translate(-25%, -25%)" //j'injecte un style à mousemove qui transforme mon cercle en plus gros diamétre quand mon curseur est an bas
+});     
+
+
+window.addEventListener("mouseup", () => { // j'ajoute un évènement à ma fenètre qui quand la souris est relachée je fais une fonction
+        mousemove.style.transform = "scale(1) translate(-50%, -50%)" //j'injecte un style à mousemove qui transforme mon cercle en position normal de son diamétre quand mon curseur est an haut
+        mousemove.style.border = "2px solid teal";
+        });     
+
+
+
+//Quand la souris survole une zone ce n'est pas un hover
+
+questionContainer.addEventListener("mouseenter", () => {//ajoute un évènement à questionContainer quand la souris arrive au-dessus de questionContainer la fonction se déclanche
+questionContainer.style.background = "rgba(0,0,0,0.6)";
+
+});
+
+
+questionContainer.addEventListener("mouseout", () => {//cette c'est le contraire c'esty quand la  souris sort de la zonne de survole la fonction se déclenche
+
+questionContainer.style.background = "pink";
+
+});
+
+
+// le mouse hover
+
+response.addEventListener("mouseover", () => {  //j'ajout un évènement à "response" qui appartient à mon "p" dans le html
+  
+response.style.transform = "rotate(2deg)"; //j'injecte un style qui transforme mon texte de avec une rotation de 2° quand je le survole
+
+})
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------
