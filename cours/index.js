@@ -120,3 +120,44 @@ response.style.transform = "rotate(2deg)"; //j'injecte un style qui transforme m
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
+
+// événement touche clavier
+//key press event
+const keypressContainer = document.querySelector (".keypress");
+const key = document.getElementById("key");
+
+// on utilise directement document pour le pointer, quand on appuie sur une touche
+
+//son pour appuie de touche
+//fonction qui va sonner
+const ring = () => {
+        const audio = new Audio();// je fais référence à un objet de js qui est pour faire de l'audio "new Audio"
+        audio.src ="./Enter.mp3";//je vais chercher mon fichier
+        audio.play();//ceux-ci est un lecteur qui joue mon fichier que je suis allé cheché et ma fonction est appelée plus bas ring();
+        };
+
+
+
+
+
+
+
+
+document.addEventListener("keypress", (canard) => { // dans document j'ajoute un évènement keypress qui actionne ma fonction quand je click avec le clavier sur ma page document
+key.textContent = canard.key; //à key j'injecte du textContent qui m'affiche les messages des lettres tapées sur mon clavier
+if (canard.key === "j") {
+keypressContainer.style.background = "pink";
+
+}else if (canard.key === "h"){
+keypressContainer.style.background = "teal";
+}else{
+keypressContainer.style.background ="red";
+}
+
+
+ring();
+
+});
+//il faut resté en dessous de 20lignes de code par évènement tapé
+
+
