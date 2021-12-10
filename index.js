@@ -97,8 +97,10 @@ window.addEventListener("scroll", () => { //je donne un évènement à ma fenêt
 // Form Events évènement sur les formulaires
 const inputName = document.querySelector('input[type="text"]');//('input[type="text"]');ce selecteur permet de cibler cette input en particulier
 const select = document.querySelector("select");
+const form = document.querySelector("form");
 let pseudo = "";
 let language = "";
+console.log(form);
 select.addEventListener("input", (e) => {
 // console.log(e.target.value);
 language = e.target.value;
@@ -111,11 +113,68 @@ console.log(e.target.value);//permet de savoir dans la console ce qui à était 
 pseudo = e.target.value;//permet de recuper ce qui est tapé dans input pour le stocké dans let pseudo
 console.log(pseudo);
 });
-//------------------------------------------------
-// Load event
 
 
+
+
+
+form.addEventListener("submit", (e) => {  //l'événement pour un form est soumettre valider
+e.preventDefault();//cette méthode à notre évènement évite de changer de page à notre navigateur cela annule ce changement de page,permet de travailler tranquille avec notre formulaire
+console.log(cgv.checked);
+if (cgv.checked) { //on à pas besoin de déclarer une variable pour une checkbox javascript les reconnaîs id pareil pour les bouttons même principe
+  // si c'est checked on va aller chercher cette balise div d'une façon différent pour montrer un exemple
+//on va chercher l'enfant de form div pour injecter h3 et h4 en utilisant innerHML
+// si c'est valider tu m'affiche ce qui est en dessous
+document.querySelector("form > div").innerHTML = `  
+<h3>Pseudo : ${pseudo}</h3>
+<h4>Langage préféré : ${language}</h4>
+`;
+} else {
+  alert("Veuillez accepter les CVG");
+}
+})
 //------------------------------------------------
+// Load event evénement de chargement
+// load envent se déclenche une fois que toute la page est chargée
+window.addEventListener("load",() =>{// je veux que tu me fasses sa une fois que le document est chargé évite d'avoir des problémes de performance 
+console.log("Document Chargé");
+
+
+
+}) ;
+
+
+
+
+
+
+
+
+//-------quand on plusieurs éléments de la même class ou plusieurs éléments qui s'appelle pareil
+//cela évite de créer une variable pour chaqu'un
+
+
+
+
+
+// ForEach ==>>>pour chacun d'eux on donnera tel logique
+ //const boxes = document.getElementsByClassName("box"); // je select plusieurs class mais pose souvent des problémes
+const boxes = document.querySelectorAll(".box");//selectionne toute les classes .box
+// boxes.addEventListener("click", () =>{  //on ne peut pas mettre un addEventListener sur 3 éléments comme cela pour cela que l'on utlise ForEach
+   console.log(boxes);   
+// })
+
+boxes.forEach((box) => {     //le paramétre ici est trés important, c'est comment je vais les appeler individuellement pour chaqu'une d'elle 
+  box.addEventListener ("click",(e) =>{ //ensuite je vais pouvoir donner la logique que je veux pour mes 3 boxes cela permet de creer un seul addEventListener au lieu de 3
+    //console.log(e.target);quand je clic sur ma page il me qu 'elle des 3 classe je suis 
+    e.target.style.transform = "scale(0.7)"; // quand je clic sur un des 3 class on injecte un style qui transform
+});
+});
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ForEach
 // const boxes = document.getElementsByClassName("box");
 
