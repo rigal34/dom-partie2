@@ -3,23 +3,19 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   list-style: none;
 }
-/*penser à mettre la font familly dans * pour quelle soit prise partout*/
-
 body {
   text-align: center;
   margin: 0;
   color: white;
-  max-width: 200vh; /*fait deux la taille de l'écran utlisateur*/
+  min-height: 200vh;
   overflow-x: hidden;
 }
-
 .box {
   border: 6px solid white;
   transition: 0.25s ease;
   background: black;
   padding: 10px;
 }
-
 p {
   visibility: hidden;
   width: 240px;
@@ -28,28 +24,41 @@ p {
   transition: 0.6s;
   transform: translateX(-200px);
 }
-
-/*je créer une class pour éviter les répétitions de mon action dans le JS*/
 .question-clicked {
   background: rgb(47, 47, 47);
   border-radius: 30px;
   border: 6px dashed pink;
 }
-
 .show-response {
   visibility: visible;
   opacity: 1;
-  transform: translate(0);
+  transform: translateX(0);
 }
-
 .mousemove {
   height: 50px;
   width: 50px;
   border: 2px solid pink;
   position: absolute;
-  transform: translate(-50%, -50%); /*permet de centrer le curseur de la souris pendant sa translation à l'axe de pageX et pageY*/   
+  transform: translate(-50%, -50%);
   border-radius: 50px;
-  transition: 0.1s ease; /*joue sur le temps de réaction du mouvement entre le cercle et le curseur*/
-  z-index: -1;/*permet à mon cercle de passer derriere mes bouttons pour pouvoir les cliquer */
+  transition: 0.2s ease;
+  z-index: -1;
+}
+nav {
+  background: pink;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: -50px;
+  transition: 0.4s;/*faire apparaitre progressivement ma nav*/
+}
 
+
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0;
+  
 }
